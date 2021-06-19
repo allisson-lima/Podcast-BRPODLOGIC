@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     letterSpacing: 5,
     paddingTop:30,
     backgroundColor: '#27657F',
-    width: 800, 
-    paddingLeft:25,
+    width: 800,
+    paddingLeft:25
 }
 });
