@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView,Text, View, Button, StyleSheet, Image, Modal } from 'react-native';
 import axios from 'axios';
-import Podcast from './components/fetch'
-import Allissoapp from './components/Modal'
 
 
-
-
-
-export default function App() {
+export default function app() {
   const [data, setData] = useState([]);
    useEffect(() => {
-     axios.get('https://api-frontend-test.brlogic.com/podcast/details.json').then((res) => {
+     axios.get('https://api-frontend-test.brlogic.com/podcast/episodes/1059/details.json').then((res) => {
        setData(res.data);
      }).catch((err) => {
        alert('error');
@@ -19,31 +14,12 @@ export default function App() {
    }, []);
 
 
-   
     return (
         
       <View style={styles.container}>
-        <Image style={styles.image}
-        source={{
-          uri: data.cover
-        }}
-      />
-        <View style={{height:'16.5%', marginTop: -120, marginBottom:0}}>
-        <Text style={styles.TitleP}> Podlogic
-        </Text>
-            <Text style={{ paddingLeft: 25, color: '#fff', fontSize: 18, fontWeight: "bold", }}>
-            6 episódios</Text>
-            
-        </View>
-        <Text style={styles.FixeTitle}>LISTA DE EPISÓDIOS</Text>
-      <ScrollView>
-      <Podcast/>
-      
-      </ScrollView>
-        <Allissoapp/>
- 
-        
- 
+          <Text style={{fontSize: 14, color:'#fff',paddingLeft: 20, paddingTop: 20}}> Episódio {data.episodeNumber} - {data.name}</Text>
+          <Text style={{ color:'#fff',paddingLeft: 20, paddingTop: 20,paddingRight:5}}>{data.description}</Text>
+          
       </View>
     );
 }
@@ -53,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#000'
+    
     
   },
   paragraph: {

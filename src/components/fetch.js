@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { ScrollView,View, StyleSheet, Text, FlatList, Image } from 'react-native'
+import { TouchableOpacity,View, StyleSheet, Text, FlatList, Image } from 'react-native'
 
 
 
@@ -14,19 +14,23 @@ export default class Podcast extends Component{
         return(
            
         <View style={{display:'flex', flexDirection: 'row', width: '100%'}}>
-          
+
+            <TouchableOpacity>
             <Image style={style.image}
             source={{ uri: item.cover }}/>
-
+            </TouchableOpacity>
+            <TouchableOpacity >
             <View style={{marginTop: 14}}> 
                 <Text style={{fontSize:14, color: 'white', width: 250}}>
-                    Episodeo {item.episodeNumber} - {item.name}
+                    Episodeo {item.episodeNumber} - {item.name} 
                 </Text>
                 
                 <Text style={{fontSize:12, color: 'white', opacity:0.6, marginTop:5}}>
                     {item.duration}
                 </Text>
             </View>
+            </TouchableOpacity>
+            
         </View>
           
         )  
